@@ -1,0 +1,28 @@
+ion-card{
+    max-width: 300;
+}
+
+img{
+    object-fit: cover;
+}
+
+.main{
+    color: black;
+    font-weight: 700;
+}
+
+.detailsLeft{
+    float: left;
+    color: black;
+    padding-left: 5px;
+}
+
+.detailsRight{
+    float: right;
+    color: black;
+    padding-right: 5px;
+}
+
+.card-body{
+    text-align: center;
+}

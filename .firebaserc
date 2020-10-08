@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "ng-ionic-demo"
+  },
+  "targets": {
+    "ng-ionic-demo": {
+      "hosting": {
+        "ng-ionic-demo": [
+          "ng-ionic-demo2.web.app"
+        ]
+      }
+    }
+  }
+}

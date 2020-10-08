@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Search
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Search</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <form>
+    <ion-searchbar (search)="doSearch($event)" placeholder="Find Articles"></ion-searchbar>
+  </form>
+
+  <ng-container *ngIf="newToPage; else elseTemplate">
+    <!-- show nothing -->
+    <div class="centered">
+      <h4>Find Articles on your desired subject...</h4>
+    </div>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <ng-container *ngIf="searchResult; else elseTemplate">
+      <div *ngFor="let result of searchResult">
+        <app-search-result [result]="result"></app-search-result>
+      </div>
+      
+    </ng-container>
+    <ng-template #elseTemplate>
+      <div class="centered">
+          <ion-spinner name="crescent"></ion-spinner>
+          <p>Searching...</p>
+        </div>
+    </ng-template>
+  </ng-template>
+  
+  
+</ion-content>

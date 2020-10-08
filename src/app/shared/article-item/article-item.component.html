@@ -1,0 +1,9 @@
+<ion-card>
+  <img src="{{article.multimedia[0].url}}" alt="image" height="300">
+  <ion-card-header>
+    <h2 class="main">{{article.title}}</h2>
+    <h3>{{article.section}}, {{article.subsection}}</h3>
+    <div class="details">{{ article.published_date | date:'medium' }}</div>
+    <div class="bookmark" (click)="addBookmark()" *ngIf="!hideBookmark"><ion-icon name="bookmark-outline"></ion-icon></div>
+  </ion-card-header>
+</ion-card>

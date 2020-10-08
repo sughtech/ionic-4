@@ -1,0 +1,30 @@
+<super-tabs>
+
+  <super-tabs-container>
+    <super-tab>
+      <ion-nav [root]="home"></ion-nav>
+    </super-tab>
+    <super-tab>
+      <ion-nav [root]="search"></ion-nav>
+    </super-tab>
+    <super-tab>
+      <ion-nav [root]="bookmarks"></ion-nav>
+    </super-tab>
+  </super-tabs-container>
+
+  <super-tabs-toolbar slot="bottom" color="primary">
+    <super-tab-button>
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Home</ion-label>
+    </super-tab-button>
+    <super-tab-button>
+      <ion-icon name="search-outline"></ion-icon>
+      <ion-label>Search</ion-label>
+    </super-tab-button>
+    <super-tab-button>
+      <ion-icon name="bookmarks-outline"></ion-icon>
+      <ion-label>Bookmarks</ion-label>
+    </super-tab-button>
+  </super-tabs-toolbar>
+
+</super-tabs>

@@ -1,0 +1,13 @@
+<ion-card>
+  <img src="{{'https://www.nytimes.com/' + result.multimedia[0].url}}" alt="{{result.multimedia[0].caption}}"
+    height="300">
+  <div class="card-body">
+    <ion-card-header>
+      <h2 class="main">{{result.headline.main}}</h2>
+      <h3>{{result.source}}</h3>
+    </ion-card-header>
+    
+    <div class="detailsLeft">{{ result.pub_date | date:'longDate' }}</div>
+    <div class="detailsRight">{{ result.pub_date | date:'shortTime' }}</div>
+  </div>
+</ion-card>
