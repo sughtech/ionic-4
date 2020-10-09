@@ -1,0 +1,37 @@
+
+
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Search Results
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Search Results</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ng-container *ngIf="searchResult; else elseTemplate">
+    <ion-slides [options]="{
+      initialSlide: 1,
+      speed: 100
+    }">
+      <ion-slide *ngFor="let result of searchResult">
+        <app-search-result [result]="result"></app-search-result>
+      </ion-slide>
+    </ion-slides>
+  
+  </ng-container>
+  <ng-template #elseTemplate>
+    <div class="centered">
+      <h4>Sorry, there's nothing to display</h4>
+    </div>
+  </ng-template>
+</ion-content>
+
+
+

@@ -31,6 +31,7 @@ export class Tab2Page {
     console.log(inputValue);
     this.handleNYTService.findArticles(inputValue).then(result => {
       this.searchResult = result;
+      this.handleNYTService.savedSearch(result);
     });
   }
 }

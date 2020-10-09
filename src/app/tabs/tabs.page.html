@@ -1,5 +1,4 @@
-<super-tabs>
-
+<super-tabs id="main-content" (tabChange)="tabChange($event)">
   <super-tabs-container>
     <super-tab>
       <ion-nav [root]="home"></ion-nav>
@@ -13,6 +12,7 @@
   </super-tabs-container>
 
   <super-tabs-toolbar slot="bottom" color="primary">
+
     <super-tab-button>
       <ion-icon name="home-outline"></ion-icon>
       <ion-label>Home</ion-label>
@@ -28,3 +28,38 @@
   </super-tabs-toolbar>
 
 </super-tabs>
+
+
+<ion-fab horizontal="center" vertical="bottom" slot="fixed">
+  <ion-fab-button color="light" (click)="onClick()">
+    <ion-icon name="aperture-outline" id="tapper"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<ion-menu side="start" content-id="main-content">
+  <ion-header>
+    <ion-toolbar id="menuTitle">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content id="menu">
+    <ion-list>
+      <ion-item (click)="goToTab(0)">
+        <ion-icon name="mail" slot="start"></ion-icon>
+        <ion-label>Home</ion-label>
+      </ion-item>
+      <ion-item (click)="goToTab(1)">
+        <ion-icon name="paper-plane" slot="start"></ion-icon>
+        <ion-label>Search</ion-label>
+      </ion-item>
+      <ion-item (click)="goToTab(2)">
+        <ion-icon name="heart" slot="start"></ion-icon>
+        <ion-label>Bookmarks</ion-label>
+      </ion-item>
+      <ion-item (click)="closeMenu()">
+        <ion-icon name="archive" slot="start"></ion-icon>
+        <ion-label>Close Menu</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>

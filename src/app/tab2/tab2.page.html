@@ -24,18 +24,20 @@
   </ng-container>
   <ng-template #elseTemplate>
     <ng-container *ngIf="searchResult; else elseTemplate">
-      <div *ngFor="let result of searchResult">
-        <app-search-result [result]="result"></app-search-result>
-      </div>
       
+      <div class="centered">
+        <h4>Found {{searchResult.length}} Results For your Search</h4>
+        <ion-button [routerLink]="'result'" [state]="{data: searchResult}">View Results</ion-button>
+      </div>
     </ng-container>
     <ng-template #elseTemplate>
       <div class="centered">
-          <ion-spinner name="crescent"></ion-spinner>
-          <p>Searching...</p>
-        </div>
+        <ion-spinner name="crescent"></ion-spinner>
+        <p>Searching...</p>
+      </div>
     </ng-template>
+    
   </ng-template>
-  
-  
+
+
 </ion-content>
