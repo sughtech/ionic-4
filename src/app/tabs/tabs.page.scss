@@ -1,5 +1,6 @@
 ion-fab{
     margin-bottom: 60px;
+    position: absolute;
 }
 
 super-tabs-toolbar{
@@ -22,4 +23,10 @@ ion-item{
 #menu, #menuTitle{
     color: white;
     --background: blue;
+}
+
+ion-button{
+    width: fit-content;
+    z-index: 100;
+    position: absolute;
 }

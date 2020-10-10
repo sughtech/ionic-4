@@ -30,8 +30,8 @@
 </super-tabs>
 
 
-<ion-fab horizontal="center" vertical="bottom" slot="fixed">
-  <ion-fab-button color="light" (click)="onClick()" #fab>
+<ion-fab id="fab" horizontal="center" vertical="bottom"cdkDrag>
+  <ion-fab-button color="light" (click)="onClick()">
     <ion-icon name="aperture-outline" id="tapper"></ion-icon>
   </ion-fab-button>
 </ion-fab>

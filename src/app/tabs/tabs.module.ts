@@ -2,6 +2,7 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { DragDropModule } from "@angular/cdk/drag-drop";
 
 import { TabsPageRoutingModule } from './tabs-routing.module';
 
@@ -20,7 +21,8 @@ import { Tab3PageModule } from '../tab3/tab3.module';
     SuperTabsModule,
     Tab1PageModule,
     Tab2PageModule,
-    Tab3PageModule
+    Tab3PageModule,
+    DragDropModule
   ],
   declarations: [TabsPage]
 })
