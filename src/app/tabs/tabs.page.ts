@@ -1,8 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Tab1Page } from '../tab1/tab1.page';
 import { Tab2Page } from '../tab2/tab2.page';
 import { Tab3Page } from '../tab3/tab3.page';
-import { MenuController } from '@ionic/angular';
+import { MenuController, GestureController, Gesture } from '@ionic/angular';
 import { SuperTabs } from '@ionic-super-tabs/angular';
 
 @Component({
@@ -10,56 +10,65 @@ import { SuperTabs } from '@ionic-super-tabs/angular';
   templateUrl: 'tabs.page.html',
   styleUrls: ['tabs.page.scss']
 })
-export class TabsPage {
+export class TabsPage implements AfterViewInit {
   home = Tab1Page;
   search = Tab2Page;
   bookmarks = Tab3Page;
   colors = ["blue", "red"];
   curentColor = 0;
-  noScroll = {
-    dragThreshold: 10,
-    allowElementScroll: true,
-    maxDragAngle: 40,
-    sideMenuThreshold: 50,
-    transitionDuration: 300,
-    shortSwipeDuration: 300,
-    debug: false,
-    avoidElements: true,
-  };
+
 
   @ViewChild(SuperTabs) tabs: SuperTabs;
+  @ViewChild("fab") fab;
 
-  constructor(private menuController: MenuController) {}
-
-  tabChange(event){
-    console.log(event);
-    if (event.detail.index == 2) {
-      this.tabs.setConfig(this.noScroll);
-      console.log('prohibited');
-    }
+  ngAfterViewInit(): void {
+    const gesture: Gesture = this.gestureController.create({
+      el: this.fab.el,
+      threshold: 15,
+      gestureName: 'my-gesture',
+      onMove: ev => this.onMove(ev),
+      onStart: ev => this.printer(ev, "Started: "),
+      onEnd: ev => this.printer(ev, "Ended: ")
+    }, true);
+    gesture.enable();
   }
 
-  toggleColors(){
-    if(this.curentColor == 0){
+  printer(ev, msg){
+    console.log(msg + ev);
+  }
+
+  constructor(private menuController: MenuController, private gestureController: GestureController) { }
+
+  onMove(ev) {
+    console.log(ev);
+    this.fab.el.style.transform = `translate(${ev.deltaX}px, ${ev.deltaY}px)`;
+  }
+
+  tabChange(event) {
+    console.log(event);
+  }
+
+  toggleColors() {
+    if (this.curentColor == 0) {
       this.curentColor = 1;
       return this.colors[1];
-    }else{
+    } else {
       this.curentColor = 0;
       return this.colors[0];
     }
   }
 
-  goToTab(index){
+  goToTab(index) {
     this.closeMenu();
     this.tabs.selectTab(index);
     // console.log(this.tabs.);
   }
 
-  closeMenu(){
+  closeMenu() {
     this.menuController.close();
   }
 
-  onClick(){
+  onClick() {
     let curentColor = this.toggleColors();
     let itemSelector = document.querySelectorAll("ion-item");
     let menu = document.getElementById('menu');
@@ -80,6 +89,8 @@ export class TabsPage {
         this.closeMenu();
       }
     })
+    console.log(this.fab.el);
+
   }
 
 }
