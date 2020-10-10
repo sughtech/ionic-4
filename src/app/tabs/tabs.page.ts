@@ -20,17 +20,26 @@ export class TabsPage implements AfterViewInit {
 
   @ViewChild(SuperTabs) tabs: SuperTabs;
   @ViewChild("fab") fab;
+  @ViewChild("fabButton") fabButton;
+
 
   ngAfterViewInit(): void {
-    const gesture: Gesture = this.gestureController.create({
-      el: this.fab.el,
+    const gesture1: Gesture = this.createGestureC();
+    const gesture2: Gesture = this.createGestureC();
+    gesture1.enable();
+    gesture2.enable();
+    
+  }
+
+  createGestureC(){
+    return this.gestureController.create({
+      el: this.fabButton.el,
       threshold: 15,
       gestureName: 'my-gesture',
       onMove: ev => this.onMove(ev),
       onStart: ev => this.printer(ev, "Started: "),
       onEnd: ev => this.printer(ev, "Ended: ")
     }, true);
-    gesture.enable();
   }
 
   printer(ev, msg){
