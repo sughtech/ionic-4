@@ -61,7 +61,6 @@ export class TabsPage implements AfterViewInit {
   goToTab(index) {
     this.closeMenu();
     this.tabs.selectTab(index);
-    // console.log(this.tabs.);
   }
 
   closeMenu() {
