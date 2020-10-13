@@ -30,10 +30,30 @@
 </super-tabs>
 
 
-<ion-fab id="fab" horizontal="center" vertical="bottom"cdkDrag>
-  <ion-fab-button color="light" (click)="onClick()">
-    <ion-icon name="aperture-outline" id="tapper"></ion-icon>
+<ion-fab id="fab" horizontal="center" vertical="bottom" cdkDrag>
+  <ion-fab-button color="primary">
+    <ion-icon name="aperture-outline"></ion-icon>
   </ion-fab-button>
+  <ion-fab-list side="top">
+    <ion-fab-button color="light" (click)="onClick()">
+      <ion-icon name="aperture-outline" id="tapper"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+  <ion-fab-list side="start">
+    <ion-fab-button color="tertiary" [href]="'tel:+2349068936445'">
+      <ion-icon name="call-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+  <ion-fab-list side="bottom">
+    <ion-fab-button color="dark" [href]="'https://wa.link/33o423'">
+      <ion-icon name="logo-whatsapp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+  <ion-fab-list side="end">
+    <ion-fab-button color="success" [href]="'mailto:anyamsesugh@gmail.com'">
+      <ion-icon name="logo-google"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
 </ion-fab>
 
 <ion-menu side="start" content-id="main-content">
